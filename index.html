@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samsidh Satish Reddy School – AI Learning Hub</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#c53ba4',
+                        secondary: '#004aad',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-poppins bg-gray-50">
+    <custom-navbar></custom-navbar>
+    
+    <!-- Hero Section -->
+    <section id="hero" class="min-h-screen relative overflow-hidden bg-gradient-to-br from-primary to-secondary text-white flex items-center justify-center">
+        <div class="absolute inset-0 opacity-20" id="particles-js"></div>
+        <div class="container mx-auto px-6 text-center z-10">
+        <img src="logo.png" alt="School Logo" class="mx-auto h-32 mb-8 rounded-full border-4 border-white shadow-xl">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Welcome to AI Learning Hub</h1>
+            <p class="text-xl md:text-2xl mb-10">Where Young Minds Meet Artificial Intelligence</p>
+            
+            <div id="name-entry" class="max-w-md mx-auto bg-white/10 backdrop-blur-md p-8 rounded-xl shadow-2xl">
+                <div class="flex items-center mb-4">
+                    <i data-feather="user" class="mr-2"></i>
+                    <label for="student-name" class="text-lg">Enter your name to begin your AI journey</label>
+                </div>
+                <input type="text" id="student-name" class="w-full px-4 py-3 rounded-lg bg-white/20 text-white placeholder-white/70 border border-white/30 focus:outline-none focus:ring-2 focus:ring-white mb-4" placeholder="Type your name here...">
+                <button id="start-btn" class="w-full bg-white text-primary hover:bg-gray-100 font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg">Let's Begin!</button>
+            </div>
+            
+            <div id="welcome-message" class="hidden max-w-md mx-auto mt-8 bg-white/10 backdrop-blur-md p-6 rounded-xl shadow-2xl">
+                <h2 id="greeting" class="text-2xl font-bold mb-2"></h2>
+                <p class="mb-4">Ready to explore the world of AI together?</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#learn" class="bg-white text-primary hover:bg-gray-100 font-bold py-2 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow">Start Learning</a>
+                    <a href="#quiz" class="bg-transparent border-2 border-white hover:bg-white/20 font-bold py-2 px-4 rounded-lg transition-all duration-300 transform hover:scale-105">Take a Quiz</a>
+                    <a href="#videos" class="bg-transparent border-2 border-white hover:bg-white/20 font-bold py-2 px-4 rounded-lg transition-all duration-300 transform hover:scale-105">Watch Videos</a>
+                </div>
+            </div>
+        </div>
+        <a href="#learn" class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i data-feather="chevron-down" class="w-10 h-10 bg-white/20 p-2 rounded-full"></i>
+        </a>
+    </section>
+
+    <!-- Learn About AI -->
+    <section id="learn" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Learn About Artificial Intelligence</h2>
+                <div class="w-24 h-1.5 bg-secondary mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-gray-50 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-t-4 border-primary transform hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                        <i data-feather="cpu" class="text-primary w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">What is AI?</h3>
+                    <p class="text-gray-600 mb-4">Artificial Intelligence is when machines can learn, think, and make decisions like humans!</p>
+                    <div class="bg-gray-100 rounded-lg p-3 mb-4">
+                        <p class="text-sm font-medium text-primary">Did You Know?</p>
+                        <p class="text-sm text-gray-600">AI can recognize faces, play games, and even create art!</p>
+                    </div>
+                    <button class="text-primary font-medium flex items-center group">
+                        Learn More <i data-feather="arrow-right" class="w-4 h-4 ml-2 group-hover:ml-3 transition-all"></i>
+                    </button>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="bg-gray-50 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-t-4 border-primary transform hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                        <i data-feather="smartphone" class="text-primary w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">AI in Daily Life</h3>
+                    <p class="text-gray-600 mb-4">From video recommendations to voice assistants, AI is everywhere around us!</p>
+                    <div class="bg-gray-100 rounded-lg p-3 mb-4">
+                        <p class="text-sm font-medium text-primary">Did You Know?</p>
+                        <p class="text-sm text-gray-600">Your phone's camera uses AI to make your photos look better!</p>
+                    </div>
+                    <button class="text-primary font-medium flex items-center group">
+                        Learn More <i data-feather="arrow-right" class="w-4 h-4 ml-2 group-hover:ml-3 transition-all"></i>
+                    </button>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="bg-gray-50 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-t-4 border-primary transform hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                        <i data-feather="activity" class="text-primary w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">Machine Learning</h3>
+                    <p class="text-gray-600 mb-4">Computers learn from data to improve their performance without being programmed!</p>
+                    <div class="bg-gray-100 rounded-lg p-3 mb-4">
+                        <p class="text-sm font-medium text-primary">Did You Know?</p>
+                        <p class="text-sm text-gray-600">YouTube uses ML to recommend videos you might like!</p>
+                    </div>
+                    <button class="text-primary font-medium flex items-center group">
+                        Learn More <i data-feather="arrow-right" class="w-4 h-4 ml-2 group-hover:ml-3 transition-all"></i>
+                    </button>
+                </div>
+                
+                <!-- Card 4 -->
+                <div class="bg-gray-50 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-t-4 border-primary transform hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                        <i data-feather="git-branch" class="text-primary w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">Neural Networks</h3>
+                    <p class="text-gray-600 mb-4">Computer systems modeled after the human brain's network of neurons.</p>
+                    <div class="bg-gray-100 rounded-lg p-3 mb-4">
+                        <p class="text-sm font-medium text-primary">Did You Know?</p>
+                        <p class="text-sm text-gray-600">Neural networks can have millions of connections!</p>
+                    </div>
+                    <button class="text-primary font-medium flex items-center group">
+                        Learn More <i data-feather="arrow-right" class="w-4 h-4 ml-2 group-hover:ml-3 transition-all"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Copilot Corner -->
+    <section id="copilot" class="py-20 bg-secondary text-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Copilot Corner</h2>
+                <div class="w-24 h-1.5 bg-primary mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-12 items-center">
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl font-bold mb-4">Meet Microsoft Copilot</h3>
+                    <p class="mb-6 text-lg">Your AI assistant for studying, coding, and creative projects!</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-primary rounded-full p-2 mr-4 flex-shrink-0">
+                                <i data-feather="edit-3" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-2">Writing Assistant</h4>
+                                <p class="text-gray-200">Get help with essays, reports, and creative writing.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-primary rounded-full p-2 mr-4 flex-shrink-0">
+                                <i data-feather="code" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-2">Coding Partner</h4>
+                                <p class="text-gray-200">Learn programming with real-time code suggestions.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-primary rounded-full p-2 mr-4 flex-shrink-0">
+                                <i data-feather="search" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-2">Research Helper</h4>
+                                <p class="text-gray-200">Find reliable information faster for your projects.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="inline-block mt-8 bg-primary hover:bg-primary/90 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 shadow-lg transform hover:scale-105 flex items-center">
+                        Try Copilot Now <i data-feather="arrow-right" class="ml-2"></i>
+                    </a>
+                </div>
+                
+                <div class="lg:w-1/2 bg-white/10 backdrop-blur-md rounded-xl p-6 shadow-xl">
+                    <h4 class="font-bold mb-4 text-center">Live Demo</h4>
+                    <div class="bg-gray-900 rounded-lg p-4 mb-4 h-64 overflow-y-auto">
+                        <div class="chat-message ai mb-4">
+                            <div class="flex items-start">
+                                <div class="bg-primary rounded-full p-1 mr-3">
+                                    <i data-feather="cpu" class="w-4 h-4"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-300">Hi! I'm Copilot. How can I help you with your studies today?</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="chat-container"></div>
+                    </div>
+                    <div class="flex">
+                        <input type="text" id="chat-input" class="flex-grow px-4 py-2 rounded-l-lg bg-white/20 text-white placeholder-white/70 border border-white/30 focus:outline-none" placeholder="Ask me anything...">
+                        <button id="send-btn" class="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-r-lg">
+                            <i data-feather="send" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quizzes & Challenges -->
+    <section id="quiz" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Quizzes & Challenges</h2>
+                <div class="w-24 h-1.5 bg-secondary mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="max-w-3xl mx-auto bg-gray-50 rounded-xl shadow-lg overflow-hidden">
+                <div class="bg-primary text-white p-6">
+                    <h3 class="text-xl font-bold">AI Basics Quiz</h3>
+                    <p class="text-sm opacity-90">Test your knowledge about Artificial Intelligence</p>
+                </div>
+                
+                <div class="p-6" id="quiz-container">
+                    <div id="quiz-intro">
+                        <p class="mb-6">Ready to test your AI knowledge? This quiz has 5 questions about basic AI concepts.</p>
+                        <button id="start-quiz" class="w-full bg-secondary hover:bg-secondary/90 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
+                            Start Quiz
+                        </button>
+                    </div>
+                    
+                    <div id="quiz-questions" class="hidden">
+                        <div class="mb-8">
+                            <h4 class="font-bold mb-4 text-lg" id="question-text">Question 1</h4>
+                            <div class="space-y-3" id="options-container">
+                                <!-- Options will be added here by JavaScript -->
+                            </div>
+                        </div>
+                        <div class="flex justify-between">
+                            <div id="quiz-progress" class="text-gray-500">Question 1 of 5</div>
+                            <button id="next-question" class="bg-primary hover:bg-primary/90 text-white font-bold py-2 px-4 rounded-lg transition-all duration-300">
+                                Next Question
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div id="quiz-results" class="hidden text-center">
+                        <div class="mb-6">
+                            <h4 class="text-2xl font-bold mb-2" id="result-title">Quiz Complete!</h4>
+                            <p id="result-score" class="text-xl mb-4">You scored 4 out of 5!</p>
+                            <div class="w-full bg-gray-200 rounded-full h-4 mb-6">
+                                <div id="progress-bar" class="bg-primary h-4 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div id="feedback" class="mb-6">
+                            <p class="text-gray-700">Great job! You know a lot about AI basics!</p>
+                        </div>
+                        <button id="retake-quiz" class="bg-secondary hover:bg-secondary/90 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
+                            Try Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16">
+                <h3 class="text-2xl font-bold text-center mb-8">Leaderboard</h3>
+                <div class="max-w-2xl mx-auto bg-gray-50 rounded-xl shadow-lg overflow-hidden">
+                    <table class="w-full">
+                        <thead class="bg-primary text-white">
+                            <tr>
+                                <th class="py-3 px-4 text-left">Rank</th>
+                                <th class="py-3 px-4 text-left">Name</th>
+                                <th class="py-3 px-4 text-left">Score</th>
+                                <th class="py-3 px-4 text-left">Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="leaderboard-body">
+                            <tr class="border-b border-gray-200 hover:bg-gray-100">
+                                <td class="py-3 px-4">1</td>
+                                <td class="py-3 px-4">Riya</td>
+                                <td class="py-3 px-4">5/5</td>
+                                <td class="py-3 px-4">Today</td>
+                            </tr>
+                            <tr class="border-b border-gray-200 hover:bg-gray-100">
+                                <td class="py-3 px-4">2</td>
+                                <td class="py-3 px-4">Arjun</td>
+                                <td class="py-3 px-4">4/5</td>
+                                <td class="py-3 px-4">Yesterday</td>
+                            </tr>
+                            <tr class="border-b border-gray-200 hover:bg-gray-100">
+                                <td class="py-3 px-4">3</td>
+                                <td class="py-3 px-4">Priya</td>
+                                <td class="py-3 px-4">4/5</td>
+                                <td class="py-3 px-4">2 days ago</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Learning Library -->
+    <section id="videos" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Video Learning Library</h2>
+                <div class="w-24 h-1.5 bg-secondary mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Video 1 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="aspect-w-16 aspect-h-9 bg-gray-200">
+                        <iframe class="w-full h-64" src="https://www.youtube.com/embed/mJeNghZXtMo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2 text-gray-800">Introduction to AI</h3>
+                        <p class="text-gray-600 mb-4">Learn what Artificial Intelligence is and how it works.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">15 min</span>
+                            <button class="text-primary font-medium flex items-center group">
+                                Watch <i data-feather="play" class="w-4 h-4 ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video 2 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="aspect-w-16 aspect-h-9 bg-gray-200">
+                        <iframe class="w-full h-64" src="https://www.youtube.com/embed/jekwHBIqBCE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2 text-gray-800">AI Tools for Students</h3>
+                        <p class="text-gray-600 mb-4">Discover how AI can help you with school projects and homework.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">12 min</span>
+                            <button class="text-primary font-medium flex items-center group">
+                                Watch <i data-feather="play" class="w-4 h-4 ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video 3 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="aspect-w-16 aspect-h-9 bg-gray-200">
+                        <iframe class="w-full h-64" src="https://www.youtube.com/embed/fqvM1AMf2P8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2 text-gray-800">How Copilot Works</h3>
+                        <p class="text-gray-600 mb-4">Explore Microsoft Copilot and its features for students.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">18 min</span>
+                            <button class="text-primary font-medium flex items-center group">
+                                Watch <i data-feather="play" class="w-4 h-4 ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects & Activities -->
+    <section id="projects" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Projects & Activities</h2>
+                <div class="w-24 h-1.5 bg-secondary mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-gray-50 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-t-4 border-secondary">
+                    <div class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mb-4">
+                        <i data-feather="message-square" class="text-secondary w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">Create Your Chatbot</h3>
+                    <p class="text-gray-600 mb-4">Build a simple AI chatbot that can answer questions about your favorite topic.</p>
+                    <a href="#" class="inline-block mt-4 bg-secondary hover:bg-secondary/90 text-white font-bold py-2 px-4 rounded-lg transition-all duration-300 shadow transform hover:scale-105 flex items-center">
+                        Download Guide <i data-feather="download" class="ml-2 w-4 h-4"></i>
+                    </a>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="bg-gray-50 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-t-4 border-secondary">
+                    <div class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mb-4">
+                        <i data-feather="image" class="text-secondary w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">Image Recognition</h3>
+                    <p class="text-gray-600 mb-4">Train an AI model to recognize different objects in photos using Teachable Machine.</p>
+                    <a href="#" class="inline-block mt-4 bg-secondary hover:bg-secondary/90 text-white font-bold py-2 px-4 rounded-lg transition-all duration-300 shadow transform hover:scale-105 flex items-center">
+                        Download Guide <i data-feather="download" class="ml-2 w-4 h-4"></i>
+                    </a>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="bg-gray-50 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-t-4 border-secondary">
+                    <div class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mb-4">
+                        <i data-feather="edit" class="text-secondary w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">Creative Writing</h3>
+                    <p class="text-gray-600 mb-4">Use Copilot to help brainstorm and write creative stories or poems.</p>
+                    <a href="#" class="inline-block mt-4 bg-secondary hover:bg-secondary/90 text-white font-bold py-2 px-4 rounded-lg transition-all duration-300 shadow transform hover:scale-105 flex items-center">
+                        Download Guide <i data-feather="download" class="ml-2 w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources & Useful Links -->
+    <section id="resources" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Resources & Useful Links</h2>
+                <div class="w-24 h-1.5 bg-secondary mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 text-gray-800">AI Platforms for Students</h3>
+                    <div class="space-y-4">
+                        <a href="https://teachablemachine.withgoogle.com/" target="_blank" class="flex items-center p-4 bg-white rounded-lg shadow hover:shadow-md transition-all">
+                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                                <i data-feather="box" class="text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Teachable Machine</h4>
+                                <p class="text-sm text-gray-600">Create machine learning models easily</p>
+                            </div>
+                        </a>
+                        
+                        <a href="https://copilot.microsoft.com/" target="_blank" class="flex items-center p-4 bg-white rounded-lg shadow hover:shadow-md transition-all">
+                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                                <i data-feather="message-circle" class="text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Microsoft Copilot</h4>
+                                <p class="text-sm text-gray-600">Your AI assistant for learning</p>
+                            </div>
+                        </a>
+                        
+                        <a href="https://chat.openai.com/" target="_blank" class="flex items-center p-4 bg-white rounded-lg shadow hover:shadow-md transition-all">
+                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                                <i data-feather="message-square" class="text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">ChatGPT</h4>
+                                <p class="text-sm text-gray-600">Ask questions and get AI answers</p>
+                            </div>
+                        </a>
+                        
+                        <a href="https://www.canva.com/ai-tools/" target="_blank" class="flex items-center p-4 bg-white rounded-lg shadow hover:shadow-md transition-all">
+                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                                <i data-feather="image" class="text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Canva AI</h4>
+                                <p class="text-sm text-gray-600">Create amazing designs with AI</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 text-gray-800">For Teachers & Mentors</h3>
+                    <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                        <h4 class="font-bold text-lg mb-4 text-secondary">Teaching AI in the Classroom</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i data-feather="file-text" class="text-primary mr-3 flex-shrink-0"></i>
+                                <a href="#" class="hover:text-primary transition-colors">AI Curriculum for Grades 5-10 (PDF)</a>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="video" class="text-primary mr-3 flex-shrink-0"></i>
+                                <a href="#" class="hover:text-primary transition-colors">Teacher Training Videos</a>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="activity" class="text-primary mr-3 flex-shrink-0"></i>
+                                <a href="#" class="hover:text-primary transition-colors">Classroom Activities Guide</a>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="award" class="text-primary mr-3 flex-shrink-0"></i>
+                                <a href="#" class="hover:text-primary transition-colors">Student Certification Program</a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-secondary rounded-xl shadow-lg p-6 text-white">
+                        <h4 class="font-bold text-lg mb-4">Want to Contribute?</h4>
+                        <p class="mb-4">Share your AI project ideas, lesson plans, or feedback with us!</p>
+                        <a href="#contact" class="inline-block bg-white text-secondary hover:bg-gray-100 font-bold py-2 px-4 rounded-lg transition-all duration-300 shadow">
+                            Contact Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feedback & Contact -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Feedback & Contact</h2>
+                <div class="w-24 h-1.5 bg-secondary mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="max-w-3xl mx-auto grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 text-gray-800">Send Us a Message</h3>
+                    <form id="feedback-form" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                        </div>
+                        
+                        <div>
+                            <label for="class" class="block text-sm font-medium text-gray-700 mb-1">Your Class</label>
+                            <select id="class" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                                <option value="">Select your class</option>
+                                <option value="5">Class 5</option>
+                                <option value="6">Class 6</option>
+                                <option value="7">Class 7</option>
+                                <option value="8">Class 8</option>
+                                <option value="9">Class 9</option>
+                                <option value="10">Class 10</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 shadow-lg transform hover:scale-105">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 text-gray-800">Contact Information</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-primary/10 rounded-full p-3 mr-4 flex-shrink-0">
+                                <i data-feather="mail" class="text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Email</h4>
+                                <p class="text-gray-600">techsupport-vempalli@samsidh.in</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-primary/10 rounded-full p-3 mr-4 flex-shrink-0">
+                                <i data-feather="map-pin" class="text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Address</h4>
+                                <p class="text-gray-600">Samsidh Satish Reddy School, Vempalli
+Office Timings: 9:00 a.m to 4:30 p.m
+Singareddy Nagireddy Colony,
+Pulivendula Road, Vempallli, Y.S.R. Kadapa District
+For enquiries and admissions dial: +919964451122</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-primary/10 rounded-full p-3 mr-4 flex-shrink-0">
+                                <i data-feather="clock" class="text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Hours</h4>
+                                <p class="text-gray-600">Monday-Friday: 8:00 AM - 4:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="font-bold text-lg mb-4">Follow Us</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all">
+                                <i data-feather="facebook"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all">
+                                <i data-feather="twitter"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all">
+                                <i data-feather="instagram"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all">
+                                <i data-feather="youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <custom-footer></custom-footer>
+
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+    <script>feather.replace();</script>
+</body>
+</html>
